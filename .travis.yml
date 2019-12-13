@@ -7,7 +7,7 @@ jdk:
   
 env:
   global:
-  	CODECOV_TOKEN="4bbe6ac7-373b-4bbb-993e-c44f66ab048f"
+    CODECOV_TOKEN="4bbe6ac7-373b-4bbb-993e-c44f66ab048f"
 
 script:
   - ./gradlew build --scan -s
