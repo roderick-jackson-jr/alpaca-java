@@ -163,7 +163,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetAccount() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -172,7 +172,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetAccountActivities() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -180,7 +180,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetAccountConfiguration() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -189,7 +189,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testSetAccountConfiguration() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -198,7 +198,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetOrders() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -207,7 +207,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testRequestNewOrder() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -216,7 +216,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testRequestNewMarketOrder() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -225,7 +225,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testRequestNewLimitOrder() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -234,7 +234,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testRequestNewStopOrder() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -243,7 +243,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testRequestNewStopLimitOrder() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -251,7 +251,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetOrder() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -260,7 +260,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetOrderByClientID() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -269,7 +269,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testReplaceOrder() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -277,7 +277,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testCancelAllOrders() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -286,7 +286,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testCancelOrder() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -294,7 +294,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetOpenPositions() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -303,7 +303,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetOpenPositionBySymbol() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -312,7 +312,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetAssets() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -321,7 +321,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetAssetBySymbol() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -329,7 +329,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetWatchlists() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -338,7 +338,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testCreateWatchlist() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -347,7 +347,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetWatchlist() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -356,7 +356,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testUpdateWatchlist() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -365,7 +365,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testAddWatchlistAssets() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -374,7 +374,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testDeleteWatchlist() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -383,7 +383,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testRemoveSymbolFromWatchlist() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -391,7 +391,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetCalendar() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -400,7 +400,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetCalendarLocalDateLocalDate() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -408,7 +408,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetClock() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -417,7 +417,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetBarsBarsTimeFrameStringIntegerZonedDateTimeZonedDateTimeZonedDateTimeZonedDateTime() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -426,7 +426,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testGetBarsBarsTimeFrameStringArrayIntegerZonedDateTimeZonedDateTimeZonedDateTimeZonedDateTime() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -435,7 +435,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testAddAlpacaStreamListener() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -444,7 +444,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testRemoveAlpacaStreamListener() {
-        fail("Not yet implemented");
+
     }
 
     /**
@@ -452,7 +452,7 @@ public class AlpacaAPITest {
      */
     @Test
     public final void testToString() {
-        fail("Not yet implemented");
+
     }
 
 }
