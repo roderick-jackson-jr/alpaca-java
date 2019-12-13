@@ -76,6 +76,9 @@ public class AlpacaAPI {
     /** The alpaca web socket client. */
     private final AlpacaWebsocketClient alpacaWebSocketClient;
 
+    /** The secret. */
+    private final String secret;
+
     /**
      * Instantiates a new Alpaca API using properties specified in alpaca.properties file (or relevant defaults)
      */
@@ -88,7 +91,7 @@ public class AlpacaAPI {
     }
 
     /**
-     * Instantiates a new Alpaca API using the specified apiVersion
+     * Instantiates a new Alpaca API using the specified apiVersion.
      *
      * @param apiVersion the api version
      */
@@ -100,6 +103,7 @@ public class AlpacaAPI {
     /**
      * Instantiates a new Alpaca API using the specified apiVersion, keyId, and secret.
      *
+     * @param apiVersion the api version
      * @param keyId  the key id
      * @param secret the secret
      */
@@ -134,11 +138,75 @@ public class AlpacaAPI {
         this.keyId = keyId;
         this.baseAPIURL = baseAPIURL;
         this.baseDataUrl = baseDataUrl;
+        this.secret = secret;
 
         alpacaRequest = new AlpacaRequest(keyId, secret);
         alpacaWebSocketClient = new AlpacaWebsocketClient(keyId, secret, baseAPIURL);
 
         LOGGER.info(this.toString());
+    }
+
+    /**
+     * Gets the api version.
+     *
+     * @return the api version
+     */
+    public final String getApiVersion() {
+        return apiVersion;
+    }
+
+    /**
+     * Gets the key id.
+     *
+     * @return the key id
+     */
+    public final String getKeyId() {
+        return keyId;
+    }
+    
+    /**
+     * Gets the secret.
+     *
+     * @return the secret
+     */
+    public final String getSecret() {
+        return secret;
+    }
+
+    /**
+     * Gets the base APIURL.
+     *
+     * @return the base APIURL
+     */
+    public final String getBaseAPIURL() {
+        return baseAPIURL;
+    }
+
+    /**
+     * Gets the alpaca request.
+     *
+     * @return the alpaca request
+     */
+    public final AlpacaRequest getAlpacaRequest() {
+        return alpacaRequest;
+    }
+
+    /**
+     * Gets the base data url.
+     *
+     * @return the base data url
+     */
+    public final String getBaseDataUrl() {
+        return baseDataUrl;
+    }
+
+    /**
+     * Gets the alpaca web socket client.
+     *
+     * @return the alpaca web socket client
+     */
+    public final AlpacaWebsocketClient getAlpacaWebSocketClient() {
+        return alpacaWebSocketClient;
     }
 
     /**
@@ -1193,6 +1261,11 @@ public class AlpacaAPI {
         alpacaWebSocketClient.removeListener(streamListener);
     }
 
+    /**
+     * To string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         return new StringJoiner(", ", this.getClass().getSimpleName() + "[", "]")

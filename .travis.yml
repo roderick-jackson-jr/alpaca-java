@@ -4,9 +4,16 @@ dist: trusty
 
 jdk:
   - oraclejdk8
+  
+env:
+  global:
+  	CODECOV_TOKEN="4bbe6ac7-373b-4bbb-993e-c44f66ab048f"
 
 script:
   - ./gradlew build --scan -s
+  - ./gradlew check
+  - ./gradlew codeCoverageReport
+  
   
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -16,3 +23,6 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+    
+#after_success:
+#  - bash <(curl -s https://codecov.io/bash)

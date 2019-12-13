@@ -10,6 +10,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import io.github.mainstringargs.alpaca.properties.AlpacaProperties;
 
 public class AlpacaAPITest {
 
@@ -41,8 +42,15 @@ public class AlpacaAPITest {
      * Test method for {@link io.github.mainstringargs.alpaca.AlpacaAPI#AlpacaAPI()}.
      */
     @Test
-    public final void testAlpacaAPI() {
-        fail("Not yet implemented");
+    public final void testAlpacaAPIConstructor_Default() {
+
+        AlpacaAPI alpacaApi = new AlpacaAPI();
+
+        assertEquals(AlpacaProperties.API_VERSION_VALUE, alpacaApi.getApiVersion());
+        assertEquals(AlpacaProperties.KEY_ID_VALUE, alpacaApi.getKeyId());
+        assertEquals(AlpacaProperties.SECRET_VALUE, alpacaApi.getSecret());
+        assertEquals(AlpacaProperties.BASE_API_URL_VALUE, alpacaApi.getBaseAPIURL());
+        assertEquals(AlpacaProperties.BASE_DATA_URL_VALUE, alpacaApi.getBaseDataUrl());
     }
 
     /**
@@ -50,8 +58,19 @@ public class AlpacaAPITest {
      * {@link io.github.mainstringargs.alpaca.AlpacaAPI#AlpacaAPI(java.lang.String)}.
      */
     @Test
-    public final void testAlpacaAPIString() {
-        fail("Not yet implemented");
+    public final void testAlpacaAPIConstructor_ApiVersion() {
+
+        String customApiVersion = "v0";
+
+        AlpacaAPI alpacaApi = new AlpacaAPI(customApiVersion);
+
+        assertNotEquals(AlpacaProperties.API_VERSION_VALUE, alpacaApi.getApiVersion());
+        assertEquals(customApiVersion, alpacaApi.getApiVersion());
+
+        assertEquals(AlpacaProperties.KEY_ID_VALUE, alpacaApi.getKeyId());
+        assertEquals(AlpacaProperties.SECRET_VALUE, alpacaApi.getSecret());
+        assertEquals(AlpacaProperties.BASE_API_URL_VALUE, alpacaApi.getBaseAPIURL());
+        assertEquals(AlpacaProperties.BASE_DATA_URL_VALUE, alpacaApi.getBaseDataUrl());
     }
 
     /**
@@ -59,8 +78,24 @@ public class AlpacaAPITest {
      * {@link io.github.mainstringargs.alpaca.AlpacaAPI#AlpacaAPI(java.lang.String, java.lang.String, java.lang.String)}.
      */
     @Test
-    public final void testAlpacaAPIStringStringString() {
-        fail("Not yet implemented");
+    public final void testAlpacaAPIConstructor_ApiVersion_KeyId_Secret() {
+
+        String customApiVersion = "v0";
+        String customKeyId = "ABCDEFGHIJKLM";
+        String customSecret = "NOPQURSTUVWXYZ";
+
+        AlpacaAPI alpacaApi = new AlpacaAPI(customApiVersion, customKeyId, customSecret);
+        assertNotEquals(AlpacaProperties.API_VERSION_VALUE, alpacaApi.getApiVersion());
+        assertEquals(customApiVersion, alpacaApi.getApiVersion());
+
+        assertNotEquals(AlpacaProperties.KEY_ID_VALUE, alpacaApi.getKeyId());
+        assertEquals(customKeyId, alpacaApi.getKeyId());
+
+        assertNotEquals(AlpacaProperties.SECRET_VALUE, alpacaApi.getSecret());
+        assertEquals(customSecret, alpacaApi.getSecret());
+
+        assertEquals(AlpacaProperties.BASE_API_URL_VALUE, alpacaApi.getBaseAPIURL());
+        assertEquals(AlpacaProperties.BASE_DATA_URL_VALUE, alpacaApi.getBaseDataUrl());
     }
 
     /**
@@ -68,8 +103,28 @@ public class AlpacaAPITest {
      * {@link io.github.mainstringargs.alpaca.AlpacaAPI#AlpacaAPI(java.lang.String, java.lang.String, java.lang.String, java.lang.String)}.
      */
     @Test
-    public final void testAlpacaAPIStringStringStringString() {
-        fail("Not yet implemented");
+    public final void testAlpacaAPIConstructor_ApiVersion_KeyId_Secret_BaseAPIURL() {
+
+        String customApiVersion = "v0";
+        String customKeyId = "ABCDEFGHIJKLM";
+        String customSecret = "NOPQURSTUVWXYZ";
+        String customBaseApiUrl = "https://paper-api.foo.bar";
+
+        AlpacaAPI alpacaApi = new AlpacaAPI(customApiVersion, customKeyId, customSecret,
+                        customBaseApiUrl);
+        assertNotEquals(AlpacaProperties.API_VERSION_VALUE, alpacaApi.getApiVersion());
+        assertEquals(customApiVersion, alpacaApi.getApiVersion());
+
+        assertNotEquals(AlpacaProperties.KEY_ID_VALUE, alpacaApi.getKeyId());
+        assertEquals(customKeyId, alpacaApi.getKeyId());
+
+        assertNotEquals(AlpacaProperties.SECRET_VALUE, alpacaApi.getSecret());
+        assertEquals(customSecret, alpacaApi.getSecret());
+
+        assertNotEquals(AlpacaProperties.BASE_API_URL_VALUE, alpacaApi.getBaseAPIURL());
+        assertEquals(customBaseApiUrl, alpacaApi.getBaseAPIURL());
+
+        assertEquals(AlpacaProperties.BASE_DATA_URL_VALUE, alpacaApi.getBaseDataUrl());
     }
 
     /**
@@ -77,8 +132,30 @@ public class AlpacaAPITest {
      * {@link io.github.mainstringargs.alpaca.AlpacaAPI#AlpacaAPI(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)}.
      */
     @Test
-    public final void testAlpacaAPIStringStringStringStringString() {
-        fail("Not yet implemented");
+    public final void testAlpacaAPIConstructor_ApiVersion_KeyId_Secret_BaseAPIURL_BaseDataURL() {
+
+        String customApiVersion = "v0";
+        String customKeyId = "ABCDEFGHIJKLM";
+        String customSecret = "NOPQURSTUVWXYZ";
+        String customBaseApiUrl = "https://paper-api.foo.bar";
+        String customBaseDataUrl = "https://data.foo.bar";
+
+        AlpacaAPI alpacaApi = new AlpacaAPI(customApiVersion, customKeyId, customSecret,
+                        customBaseApiUrl, customBaseDataUrl);
+        assertNotEquals(AlpacaProperties.API_VERSION_VALUE, alpacaApi.getApiVersion());
+        assertEquals(customApiVersion, alpacaApi.getApiVersion());
+
+        assertNotEquals(AlpacaProperties.KEY_ID_VALUE, alpacaApi.getKeyId());
+        assertEquals(customKeyId, alpacaApi.getKeyId());
+
+        assertNotEquals(AlpacaProperties.SECRET_VALUE, alpacaApi.getSecret());
+        assertEquals(customSecret, alpacaApi.getSecret());
+
+        assertNotEquals(AlpacaProperties.BASE_API_URL_VALUE, alpacaApi.getBaseAPIURL());
+        assertEquals(customBaseApiUrl, alpacaApi.getBaseAPIURL());
+
+        assertNotEquals(AlpacaProperties.BASE_DATA_URL_VALUE, alpacaApi.getBaseDataUrl());
+        assertEquals(customBaseDataUrl, alpacaApi.getBaseDataUrl());
     }
 
     /**

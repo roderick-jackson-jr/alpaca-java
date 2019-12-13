@@ -34,6 +34,9 @@ apply plugin: 'eclipse'
 
 apply plugin: 'com.bmuschko.nexus'
 
+//used for coverage
+apply plugin: 'jacoco'
+
 archivesBaseName = 'alpaca-java'
 group = 'io.github.mainstringargs'
 version = '5.0.0-SNAPSHOT'
@@ -61,6 +64,7 @@ dependencies {
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:3.2.0" 
 }
 
 sourceCompatibility = 1.8
@@ -99,6 +103,19 @@ modifyPom {
 javadoc.options.addStringOption('Xdoclint:none', '-quiet')
 javadoc.options.addStringOption("charset", "UTF-8")
 
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
 
 publishing {
     publications {
