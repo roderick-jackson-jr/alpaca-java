@@ -72,15 +72,13 @@ public class PolygonAPI {
     private String websocketURL;
 
     /** The Key id. */
-    private String keyID;
+    private String keyId;
 
     /**
      * Instantiates a new polygon API.
      */
     public PolygonAPI() {
         this(PolygonProperties.KEY_ID_VALUE);
-
-        LOGGER.info(PolygonProperties.staticToString());
     }
 
     /**
@@ -89,23 +87,33 @@ public class PolygonAPI {
      * @param keyId the key id
      */
     public PolygonAPI(String keyId) {
-        this(PolygonProperties.BASE_API_URL_VALUE, PolygonProperties.POLYGON_WEB_SOCKET_SERVER_URL_VALUE, keyId);
+        this(keyId, PolygonProperties.BASE_API_URL_VALUE);
+    }
+    
+    /**
+     * Instantiates a new polygon API.
+     * @param keyID        the key id
+     * @param baseAPIURL   the base api url
+     */
+    public PolygonAPI(String keyId, String baseAPIURL) {
+        this(keyId, baseAPIURL, PolygonProperties.POLYGON_WEB_SOCKET_SERVER_URL_VALUE);
     }
 
     /**
+
+    /**
      * Instantiates a new polygon API.
-     *
+     * @param keyId        the key id
      * @param baseAPIURL   the base api url
      * @param websocketURL the websocket url
-     * @param keyID        the key id
      */
-    public PolygonAPI(String baseAPIURL, String websocketURL, String keyID) {
+    public PolygonAPI(String keyId, String baseAPIURL, String websocketURL) {
         this.baseAPIURL = baseAPIURL;
         this.websocketURL = websocketURL;
-        this.keyID = keyID;
+        this.keyId = keyId;
 
-        polygonRequest = new PolygonRequest(keyID);
-        polygonWebsocketClient = new PolygonWebsocketClient(keyID, websocketURL);
+        polygonRequest = new PolygonRequest(keyId);
+        polygonWebsocketClient = new PolygonWebsocketClient(keyId, websocketURL);
 
         LOGGER.info(this.toString());
     }
@@ -178,7 +186,7 @@ public class PolygonAPI {
      * Get the mapping of ticker types to descriptions / long names.
      *
      * @return the ticker types
-     *
+     * @throws PolygonAPIRequestException the polygon API request exception
      * @see <a href="https://polygon.io/docs/#!/Reference/get_v2_reference_types">Ticker Types</a>
      */
     public TickerTypes getTickerTypes() throws PolygonAPIRequestException {
@@ -266,10 +274,9 @@ public class PolygonAPI {
     }
 
     /**
-     * Get the list of currently supported markets
+     * Get the list of currently supported markets.
      *
      * @return the markets
-     *
      * @throws PolygonAPIRequestException the polygon API exception
      * @see <a href="https://polygon.io/docs/#!/Reference/get_v2_reference_markets">Markets</a>
      */
@@ -288,10 +295,9 @@ public class PolygonAPI {
     }
 
     /**
-     * Get the list of currently supported locales
+     * Get the list of currently supported locales.
      *
      * @return the locales
-     *
      * @throws PolygonAPIRequestException the polygon API exception
      * @see <a href="https://polygon.io/docs/#!/Reference/get_v2_reference_locales">Locales</a>
      */
@@ -310,12 +316,10 @@ public class PolygonAPI {
     }
 
     /**
-     * Get the historical splits for this symbol
+     * Get the historical splits for this symbol.
      *
      * @param symbol symbol we want details for
-     *
      * @return the stock splits
-     *
      * @throws PolygonAPIRequestException the polygon API exception
      * @see <a href="https://polygon.io/docs/#!/Reference/get_v2_reference_splits_symbol">Stock Splits</a>
      */
@@ -726,15 +730,12 @@ public class PolygonAPI {
     }
 
     /**
-     * See the current snapshot of a single ticker
+     * See the current snapshot of a single ticker.
      *
      * @param ticker Ticker of the snapshot
-     *
      * @return the snapshot single ticker
-     *
      * @throws PolygonAPIRequestException the polygon API exception
-     * @see
-     * <a href="https://polygon.io/docs/#!/Stocks--Equities/get_v2_snapshot_locale_us_markets_stocks_tickers_ticker">Snapshot
+     * @see <a href="https://polygon.io/docs/#!/Stocks--Equities/get_v2_snapshot_locale_us_markets_stocks_tickers_ticker">Snapshot
      * - Single Ticker</a>
      */
     public SnapshotSingleTickerResponse getSnapshotSingleTicker(String ticker) throws PolygonAPIRequestException {
@@ -792,13 +793,11 @@ public class PolygonAPI {
     }
 
     /**
-     * Get the previous day close for the specified ticker
+     * Get the previous day close for the specified ticker.
      *
      * @param ticker     Ticker symbol of the request
      * @param unadjusted Set to true if the results should NOT be adjusted for splits.
-     *
      * @return the previous close
-     *
      * @throws PolygonAPIRequestException the polygon API exception
      * @see <a href="https://polygon.io/docs/#!/Stocks--Equities/get_v2_aggs_ticker_ticker_prev">Previous Close</a>
      */
@@ -825,7 +824,7 @@ public class PolygonAPI {
     }
 
     /**
-     * Get aggregates for a date range, in custom time window sizes
+     * Get aggregates for a date range, in custom time window sizes.
      *
      * @param ticker     Ticker symbol of the request
      * @param multiplier Size of the timespan multiplier
@@ -833,12 +832,9 @@ public class PolygonAPI {
      * @param fromDate   From date
      * @param toDate     To date
      * @param unadjusted Set to true if the results should NOT be adjusted for splits
-     *
      * @return the aggregates
-     *
      * @throws PolygonAPIRequestException the polygon API exception
-     * @see
-     * <a href="https://polygon.io/docs/#!/Stocks--Equities/get_v2_aggs_ticker_ticker_range_multiplier_timespan_from_to">Aggregates</a>
+     * @see <a href="https://polygon.io/docs/#!/Stocks--Equities/get_v2_aggs_ticker_ticker_range_multiplier_timespan_from_to">Aggregates</a>
      */
     public AggregatesResponse getAggregates(String ticker, Integer multiplier, Timespan timeSpan, LocalDate fromDate,
             LocalDate toDate, Boolean unadjusted) throws PolygonAPIRequestException {
@@ -931,12 +927,44 @@ public class PolygonAPI {
         polygonWebsocketClient.removeListener(streamListener);
     }
 
+    /**
+     * To string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         return new StringJoiner(", ", this.getClass().getSimpleName() + "[", "]")
                 .add("baseAPIURL = " + baseAPIURL)
-                .add("keyID = " + keyID)
+                .add("keyID = " + keyId)
                 .add("websocketURL = " + websocketURL)
                 .toString();
+    }
+
+    /**
+     * Gets the base APIURL.
+     *
+     * @return the base APIURL
+     */
+    public final String getBaseAPIURL() {
+        return baseAPIURL;
+    }
+
+    /**
+     * Gets the websocket URL.
+     *
+     * @return the websocket URL
+     */
+    public final String getWebsocketURL() {
+        return websocketURL;
+    }
+
+    /**
+     * Gets the key id.
+     *
+     * @return the key id
+     */
+    public final String getKeyId() {
+        return keyId;
     }
 }
