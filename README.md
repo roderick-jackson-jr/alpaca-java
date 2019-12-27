@@ -1,7 +1,7 @@
-<p align="center"><a href="https://mainstringargs.github.io/alpaca-java/"><img src="https://i.imgur.com/mQcuK61.jpg"></a></p>
+<p align="center"><a href="https://mainstringargs.github.io/alpaca-java/" target="_blank"><img src="https://i.imgur.com/mQcuK61.jpg"></a></p>
 <p align="center">
-<a href="https://travis-ci.org/mainstringargs/alpaca-java"><img src="https://travis-ci.org/mainstringargs/alpaca-java.svg?branch=master" alt="Build Status"></a>
-<a href="https://javadoc.io/doc/io.github.mainstringargs/alpaca-java"><img src="https://javadoc.io/badge/io.github.mainstringargs/alpaca-java.svg" alt="Javadocs"></a>
+<a href="https://search.maven.org/artifact/io.github.mainstringargs/alpaca-java" target="_blank"><img alt="Maven Central" src="https://img.shields.io/maven-central/v/io.github.mainstringargs/alpaca-java"></a> <a href="https://javadoc.io/doc/io.github.mainstringargs/alpaca-java" target="_blank"><img src="https://javadoc.io/badge/io.github.mainstringargs/alpaca-java.svg" alt="Javadocs"></a> <a href="https://travis-ci.org/mainstringargs/alpaca-java" target="_blank"><img src="https://travis-ci.org/mainstringargs/alpaca-java.svg?branch=master" alt="Build Status"></a> <a href="https://codecov.io/gh/mainstringargs/alpaca-java" target="_blank"><img src="https://codecov.io/gh/mainstringargs/alpaca-java/branch/unittesting/graph/badge.svg" />
+</a> <a href="https://opensource.org/licenses/MIT" target="_blank"><img alt="GitHub" src="https://img.shields.io/github/license/mainstringargs/alpaca-java"></a>    
 </p>
 
 # Overview
@@ -31,7 +31,7 @@ Add the following dependency to your build.gradle file:
 
 ```
 dependencies {
-	compile "io.github.mainstringargs:alpaca-java:5.0.0"
+	compile "io.github.mainstringargs:alpaca-java:5.0.2"
 }
 ```
 
@@ -43,7 +43,7 @@ Add the following dependency to your pom.xml file:
 <dependency>
     <groupId>io.github.mainstringargs</groupId>
     <artifactId>alpaca-java</artifactId>
-    <version>5.0.0</version>
+    <version>5.0.2</version>
     <scope>compile</scope>
 </dependency>
 ```
