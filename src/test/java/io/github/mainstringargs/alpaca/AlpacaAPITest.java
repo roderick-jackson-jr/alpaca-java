@@ -4,13 +4,17 @@
 package io.github.mainstringargs.alpaca;
 
 import static org.junit.Assert.*;
-
+import java.io.InputStream;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.mockito.Mockito;
+import com.mashape.unirest.http.HttpResponse;
 import io.github.mainstringargs.alpaca.properties.AlpacaProperties;
+import io.github.mainstringargs.alpaca.rest.exception.AlpacaAPIRequestException;
+import io.github.mainstringargs.domain.alpaca.account.Account;
 
 public class AlpacaAPITest {
 
@@ -160,9 +164,35 @@ public class AlpacaAPITest {
 
     /**
      * Test method for {@link io.github.mainstringargs.alpaca.AlpacaAPI#getAccount()}.
+     * 
+     * @throws AlpacaAPIRequestException
      */
-    @Test
-    public final void testGetAccount() {
+    @Test(expected = AlpacaAPIRequestException.class)
+    public final void testGetAccount() throws AlpacaAPIRequestException {
+
+        AlpacaAPI alpacaApi = new AlpacaAPI();
+        HttpResponse<InputStream> responseMock = Mockito.mock(HttpResponse.class);
+        Mockito.doReturn(200).when(responseMock).getStatus();
+
+        Account account = alpacaApi.getAccount();
+        assertNotNull(account);
+
+    }
+
+
+    /**
+     * Test method for {@link io.github.mainstringargs.alpaca.AlpacaAPI#getAccount()}.
+     * 
+     * @throws AlpacaAPIRequestException
+     */
+    @Test(expected = AlpacaAPIRequestException.class)
+    public final void testGetAccount_Exception() throws AlpacaAPIRequestException {
+
+        AlpacaAPI alpacaApi = new AlpacaAPI();
+        HttpResponse<InputStream> responseMock = Mockito.mock(HttpResponse.class);
+        Mockito.doReturn(400).when(responseMock).getStatus();
+
+        alpacaApi.getAccount();
 
     }
 
