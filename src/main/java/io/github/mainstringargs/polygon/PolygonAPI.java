@@ -92,7 +92,7 @@ public class PolygonAPI {
     
     /**
      * Instantiates a new polygon API.
-     * @param keyID        the key id
+     * @param keyId        the key id
      * @param baseAPIURL   the base api url
      */
     public PolygonAPI(String keyId, String baseAPIURL) {
