@@ -929,6 +929,8 @@ public class AlpacaAPI {
         return alpacaRequest.getResponseObject(response, arrayListType);
     }
 
+
+
     /**
      * Attempts to cancel an open order. If the order is no longer cancelable (example: status=order_filled), the server
      * will respond with status 422, and reject the request.
@@ -1003,6 +1005,48 @@ public class AlpacaAPI {
         }
 
         return alpacaRequest.getResponseObject(response, Position.class);
+    }
+
+
+    public ArrayList<CancelledOrder> closeAllPositions() throws AlpacaAPIRequestException {
+        AlpacaRequestBuilder urlBuilder = new AlpacaRequestBuilder(baseAPIURL, apiVersion,
+                AlpacaConstants.ORDERS_ENDPOINT);
+
+        HttpResponse<InputStream> response = alpacaRequest.invokeDelete(urlBuilder);
+
+        if (response.getStatus() != 207) { // This returns a 207 multi-status message
+            throw new AlpacaAPIRequestException(response);
+        }
+
+        Type arrayListType = new TypeToken<ArrayList<CancelledOrder>>() {}.getType();
+
+        return alpacaRequest.getResponseObject(response, arrayListType);
+    }
+
+    /**
+     * Attempts to close a position.
+     *
+     * @param symbol the ticker
+     *
+     * @return true, if successful
+     *
+     * @throws AlpacaAPIRequestException the alpaca API exception
+     *
+     */
+    public boolean closePostion(String symbol) throws AlpacaAPIRequestException {
+        Preconditions.checkNotNull(symbol);
+
+        AlpacaRequestBuilder urlBuilder = new AlpacaRequestBuilder(baseAPIURL, apiVersion,
+                AlpacaConstants.POSITIONS_ENDPOINT,
+                symbol);
+
+        HttpResponse<InputStream> response = alpacaRequest.invokeDelete(urlBuilder);
+
+        if ((response.getStatus() != 200 && response.getStatus() != 204)) {
+            throw new AlpacaAPIRequestException(response);
+        }
+
+        return response.getStatus() == 200 || response.getStatus() == 204;
     }
 
     /**
