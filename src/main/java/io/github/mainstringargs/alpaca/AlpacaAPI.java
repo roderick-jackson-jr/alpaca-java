@@ -1010,7 +1010,7 @@ public class AlpacaAPI {
 
     public ArrayList<CancelledOrder> closeAllPositions() throws AlpacaAPIRequestException {
         AlpacaRequestBuilder urlBuilder = new AlpacaRequestBuilder(baseAPIURL, apiVersion,
-                AlpacaConstants.ORDERS_ENDPOINT);
+                AlpacaConstants.POSITIONS_ENDPOINT;
 
         HttpResponse<InputStream> response = alpacaRequest.invokeDelete(urlBuilder);
 
