@@ -137,4 +137,7 @@ public class AlpacaConstants {
     /** The Constant UTF_ENCODING. */
     public static final String UTF_ENCODING = "UTF-8";
 
+    public static final String TRAILING_PERCENT = "trialing_percent";
+
+    public static final String TRAILING_PRICE = "trail_price";
 }
